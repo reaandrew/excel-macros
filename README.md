@@ -4,9 +4,34 @@ A small collection of Excel VBA macros I keep around so I don't have to write th
 
 ## Macros
 
+### `FillGaps` — `FillGaps.bas` (recommended)
+
+Walks down a column and fills every empty cell by linear interpolation between the nearest non-empty cell above and the nearest non-empty cell below. Handles many gaps in one go.
+
+**Usage**
+
+- Click any cell in the column and run — fills every gap between the first and last non-empty cells of that column.
+- Or select a contiguous range in one column to scope it.
+
+```
+Before:        After:
+A1  100        A1  100
+A2             A2  110
+A3             A3  120
+A4  130        A4  130
+A5             A5  145
+A6  160        A6  160
+A7             A7  170
+A8             A8  180
+A9             A9  190
+A10 200        A10 200
+```
+
+Notes: non-numeric anchors (e.g. a column header) are skipped, so headers don't break it. Each gap's decimal places match the larger of its two anchors.
+
 ### `DistributeBetween` — `DistributeBetween.bas`
 
-Linearly interpolates the cells between the top and bottom of a single-column selection.
+Simpler variant: linearly interpolates the cells between the top and bottom of a single-column selection. `FillGaps` is usually what you want; this one is here for the case where you've selected exactly one top-to-bottom range.
 
 **Usage**
 
