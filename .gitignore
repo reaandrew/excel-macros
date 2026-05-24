@@ -1,0 +1,10 @@
+# Excel temp / lock files
+~$*
+*.tmp
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
